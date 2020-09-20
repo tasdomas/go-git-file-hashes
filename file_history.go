@@ -1,3 +1,5 @@
+// Package file_history provides a way to get the hashes of all versions of a file
+// in a git repository.
 package file_history
 
 import (
@@ -15,7 +17,7 @@ import (
 var ErrNotFound = fmt.Errorf("not found")
 
 // FileHistory will trace all the versions of a file in the git repository
-// and return a list of sha1 hashes of that file.
+// and return a list of hashes of that file.
 func FileHistory(repo *git.Repository, path string, h hash.Hash) ([][]byte, error) {
 	logOpts := git.LogOptions{
 		FileName: &path,
